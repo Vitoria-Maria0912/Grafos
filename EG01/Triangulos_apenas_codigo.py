@@ -2,6 +2,10 @@
 filename1 = "s-u-cy-sc-p-06.graphml" #@param ["m-u-cy-sc-p-01.graphml", "p-u-cy-sc-p-ch-01.graphml", "s-u-cy-sc-p-01.graphml", "s-u-cy-sc-p-05.graphml", "s-u-a-sc-p-t-b-03.graphml", "s-u-cy-sc-p-06.graphml", "s-u-cy-sc-p-b-01.graphml", "s-u-cy-sc-p-03.graphml", "K3-3.graphml", "Cycle6.graphml", "Empty6.graphml"]
 layout1 = "spring_layout" #@param ["circular_layout", "kamada_kawai_layout", "planar_layout", "random_layout", "shell_layout", "spring_layout", "spectral_layout", "spiral_layout"]
 
+# Autors: Vitória Maria do Nascimento
+#         Lucas de Sousa Pereira
+#         Rian Ismael Elias de Melo 
+
 def triangles (G):
   
   lista = []
