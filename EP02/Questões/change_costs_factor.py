@@ -5,6 +5,8 @@ def change_costs_factor(ddc, c):
     
     fator_resultante = 0
     custo = 1
+    
+    for(dependentes: ddc):
 
     # não soma se c depende de c
     if(outras classes são dependentes de c):
