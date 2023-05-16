@@ -12,6 +12,7 @@ def change_costs_factor(ddc, c):
         return custo
     
     sem_loop = True
+    sets = nx.strongly_connected_components
 
     # verifica se há loop no vértice 'c'
 
@@ -29,10 +30,15 @@ def change_costs_factor(ddc, c):
         # se há componentes fortes, há um tangle
         # considera-se apenas tangles > 3  
         # checar se há componentes fortes do 'node' até alguém ----------------------------------------------
-        if(a classe faz parte de um tangle):
-            fator_resultante += 50
+        
+        # a classe faz parte de um tangle
+        for set in sets:
+            if(c in set) and (set.size() > 3):
+                fator_resultante += 50
 
         # o que seria um ciclo de dependência mínima? --------------------------------------------------------
+        
+        cycles = nx.simple_cycles(ddc)
         if(a classe faz parte de 1 ou
             mais ciclos de dependência mínimos):
             fator_resultante += 10
