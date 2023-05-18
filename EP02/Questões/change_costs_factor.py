@@ -20,7 +20,7 @@ def change_costs_factor(ddc, c):
     
     sets_tangles = nx.strongly_connected_components(ddc)
     cycles = minimum_cycle_basis(ddc)
-    neighborhood = ddc.neighbors(c)
+    neighborhood = ddc.predecessors(c)
 
     # não soma se 'c' depende de 'c', ou seja, se a classe tiver loop
     # somente se outras classes são dependentes de 'c'
