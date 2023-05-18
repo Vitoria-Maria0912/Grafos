@@ -20,13 +20,13 @@ def change_costs_factor(ddc, c):
     
     sets_tangles = nx.strongly_connected_components(ddc)
     cycles = minimum_cycle_basis(ddc)
-    neighborhood = ddc.predecessors(c)
+    neighborhood = ddc.neighbors(c)
 
     # não soma se 'c' depende de 'c', ou seja, se a classe tiver loop
     # somente se outras classes são dependentes de 'c'
 
     for neighbor in neighborhood: 
-        if(neighbor != c):
+        if(neighbor != c) and nx.has_path(ddc, neighbor, c):
             fator_resultante += 1
 
     # se há componentes fortes, há um tangle
