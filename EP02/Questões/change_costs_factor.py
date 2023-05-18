@@ -19,8 +19,8 @@ def change_costs_factor(ddc, c):
     custo = 1
     
     sets_tangles = nx.strongly_connected_components(ddc)
-    cycles = minimum_cycle_basis(ddc)
-    neighborhood = ddc.predecessors(c)
+    cycles = nx.simple_cycles(ddc)
+    neighborhood = ddc.nodes
 
     # não soma se 'c' depende de 'c', ou seja, se a classe tiver loop
     # somente se outras classes são dependentes de 'c'
@@ -41,7 +41,7 @@ def change_costs_factor(ddc, c):
     # cada ciclo de dependência mínima soma 10 ao fator resultante
 
     for cycle in cycles:
-        if(c in cycle) and len(cycle) > 1:
+        if(c in cycle):
             fator_resultante += 10
 
     # atualiza o custo somando ao fator resultante   
