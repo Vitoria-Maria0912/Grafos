@@ -1,6 +1,8 @@
 import networkx as nx
 from src.Q01 import class_metrics
 
+# Author: Lucas Ariel Alves de Carvalho
+
 
 def mfs_greedy(ddc):
     # Verifica se o grafo fornecido é válido
