@@ -2,6 +2,8 @@ import networkx as nx
 from util.networkx_util import draw_graph
 from src.Q02 import silent_villains
 
+# Author: Patrícia Duarte de Lima Machado
+
 DDC = nx.read_edgelist("datasets/toy1.elist", create_using=nx.DiGraph)
 
 g_br, g_bu, h = silent_villains(DDC, 1)
