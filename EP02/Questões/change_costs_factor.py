@@ -1,5 +1,7 @@
 import networkx as nx
 
+# Author: Vitória Maria do Nascimento 
+
 
 def change_costs_factor(ddc, c):
 
