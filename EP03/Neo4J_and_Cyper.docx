@@ -1,0 +1,71 @@
+Question 1 - Author: Pedro Henrique Sarmento Pereira
+
+MATCH (n:Organization {name: 'InfoWest'}) - [:OWNS] - (ip) 
+
+RETURN n, ip
+
+----------------------------------------------------------------------
+
+Question 2 - Author: Rute Pereira da Silva
+
+MATCH (org:Organization) - [:OWNS] -> (ip:IP)
+
+WITH org, COUNT(ip) AS qtde
+
+WHERE qtde > 10
+
+RETURN org.name, qtde
+
+ORDER BY org.name ASC
+
+----------------------------------------------------------------------
+
+Question 3 - Author: Vinícius José Soares Barbosa
+
+MATCH (cam:Camera) - [:LISTENING_ON] -> (p:Port) - [:ON] -> (ip:IP) - [:IN_COUNTRY] -> (:Country {name: "Germany"})
+
+WITH ip, p, cam As d
+
+RETURN ip.address, p.port, d.timestamp
+
+ORDER by ip.address ASC
+
+----------------------------------------------------------------------
+
+Question 4 - Author: Lucas Ariel Alves de Carvalho
+
+MATCH (country:Country) <- [:IN_COUNTRY] - (ip:IP) <- [:ON] - (:Port) <- [:LISTENING_ON] - () 
+
+WITH country.name AS cname, collect(ip.address) AS ips
+
+RETURN cname, ips
+
+ORDER BY cname ASC, ips
+
+----------------------------------------------------------------------
+
+Question 5 - Author: Vitória Maria do Nascimento
+
+MATCH((p:Port) - [:ON] -> (ip:IP) - [:IN_COUNTRY] -> (country:Country))
+
+WHERE country IS NOT NULL
+
+RETURN country.name, p.port, count(p) 
+
+ORDER BY country.name ASC, count(p) DESC, size(p.port) ASC, p.port ASC
+
+----------------------------------------------------------------------
+
+Question 6 - Author: Vitória Maria do Nascimento
+
+MATCH((org:Organization) - [:OWNS] -> (ip:IP) - [:IN_COUNTRY] -> (country:Country))
+
+WITH org, COUNT(DISTINCT country) AS different_countries
+
+WHERE different_countries > 1
+
+return org.name 
+
+ORDER BY org.name ASC
+
+----------------------------------------------------------------------
